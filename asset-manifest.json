@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/geo-test/static/css/main.fc130dda.css",
-    "main.js": "/geo-test/static/js/main.ae93796d.js",
+    "main.js": "/geo-test/static/js/main.2c604e72.js",
     "index.html": "/geo-test/index.html",
     "main.fc130dda.css.map": "/geo-test/static/css/main.fc130dda.css.map",
-    "main.ae93796d.js.map": "/geo-test/static/js/main.ae93796d.js.map"
+    "main.2c604e72.js.map": "/geo-test/static/js/main.2c604e72.js.map"
   },
   "entrypoints": [
     "static/css/main.fc130dda.css",
-    "static/js/main.ae93796d.js"
+    "static/js/main.2c604e72.js"
   ]
 }
