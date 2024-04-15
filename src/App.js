@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
-function App() {
+import "./style/App.css";
+import { GeneralMap } from "./components/map/GeneralMap";
+import { Header } from "./components/header/Header";
+
+const App = () => {
+  const [userLocation, setUserLocation] = useState(null);
+  const getUserLocation = () => {
+    // if geolocation is supported by the users browser
+    if (navigator.geolocation) {
+      // get the current users location
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation(position.coords);
+        },
+        (error) => {
+          console.error("Error getting user location:", error);
+        }
+      );
+    }
+    // if geolocation is not supported by the users browser
+    else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  };
+  getUserLocation();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header userLocation={userLocation} getUserLocation={getUserLocation}/>
+      {userLocation !== null ? <GeneralMap userLocation={userLocation}/> : <></>}
     </div>
   );
 }
